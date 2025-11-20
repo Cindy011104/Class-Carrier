@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Carrier</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="img/logo.jpg" class="logo-nav" />
+            <span class="brand">Class Carrier</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#mentor">Mentor</a></li>
+            <li><a href="#konseling">Konseling</a></li>
+            <li><a href="#cv">Review CV</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#login-section" id="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero fade-up">
+        <div class="hero-image">
+            <img src="img/animasi.jpg" alt="Hero" />
+        </div>
+
+        <h1>Bangun Kariermu Bersama Class Carrier</h1>
+        <p>
+            Platform pengembangan karier dengan mentor profesional, sesi konseling,
+            dan layanan review CV & portofolio.
+        </p>
+
+        <a href="#login-section" class="cta-button" id="login-btn-2">Mulai Sekarang</a>
+    </section>
+
+    <!-- LOGIN SECTION -->
+    <section id="login-section" class="box-section fade-in">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Email / No HP">
+            <input type="password" placeholder="Password">
+            <button class="btn-submit">Login</button>
+        </form>
+
+        <hr style="margin: 40px 0; border: 0; height: 1px; background:#ddd;">
+
+        <h2>Registrasi</h2>
+        <form>
+            <input type="text" placeholder="Nama">
+            <input type="text" placeholder="Email / No HP">
+            <input type="text" placeholder="Pekerjaan">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Konfirmasi Password">
+            <button class="btn-submit">Daftar</button>
+        </form>
+
+        <hr style="margin: 40px 0; border: 0; height: 1px; background:#ddd;">
+
+        <h2>Reset Password</h2>
+        <form>
+            <input type="text" placeholder="Email / No HP">
+            <input type="password" placeholder="Password Baru">
+            <input type="password" placeholder="Konfirmasi Password Baru">
+            <button class="btn-submit">Reset Password</button>
+        </form>
+    </section>
+
+    <!-- MENTOR -->
+    <section id="mentor" class="content-section fade-in">
+        <h2>Mentor Profesional</h2>
+        <input class="search" type="text" placeholder="Cari mentor..." />
+
+        <div class="card-container">
+
+            <a href="#mentor" class="card-link">
+            <div class="card fade-up">
+                <img src="img/mentor-1.jpg" class="card-photo" />
+                <h3>Budi Santoso</h3>
+                <p>UI/UX Designer</p>
+                <span class="tag">Desain</span>
+            </div>
+            </a>
+
+            <a href="#mentor" class="card-link">
+            <div class="card fade-up">
+                <img src="img/mentor-2.jpg" class="card-photo" />
+                <h3>Rina Pratiwi</h3>
+                <p>HR Specialist</p>
+                <span class="tag">Human Resource</span>
+            </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- KONSELING -->
+    <section id="konseling" class="content-section fade-in">
+        <h2>Sesi Konseling Karier</h2>
+        <input class="search" type="text" placeholder="Cari divisi..." />
+
+        <div class="card-container">
+
+            <a href="#konseling" class="card-link">
+            <div class="card fade-up">
+                <h3>Desain</h3>
+                <p>Jadwal: Senin & Rabu</p>
+                <a href="#" class="link-meet" onclick="openLinkPopup('https://meet.google.com/xxx')">Link Pertemuan</a>
+            </div>
+            </a>
+
+            <a href="#konseling" class="card-link">
+            <div class="card fade-up">
+                <h3>IT Development</h3>
+                <p>Jadwal: Selasa & Kamis</p>
+                <a href="#" class="link-meet" onclick="openLinkPopup('https://meet.google.com/yyy')">Link Pertemuan</a>
+            </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- REVIEW CV -->
+    <section id="cv" class="content-section fade-in">
+        <h2>Penilaian CV & Review Portofolio</h2>
+        <input class="search" type="text" placeholder="Cari bidang..." />
+
+        <a href="#cv" class="card-link">
+        <div class="card fade-up">
+            <h3>Via Chat</h3>
+            <p>Kirim CV Anda dan dapatkan balasannya langsung dari mentor.</p>
+            <button class="btn-submit" onclick="openCVPopup()">Kirim CV</button>
+        </div>
+        </a>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section fade-in">
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+            <h4>Apa itu Class Carrier?</h4>
+            <p>Class Carrier adalah layanan pengembangan karier dengan mentor profesional.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Bagaimana cara mendaftar?</h4>
+            <p>Gunakan tombol Login untuk membuka formulir.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Apakah mentoring gratis?</h4>
+            <p>Tergantung mentor yang Anda pilih.</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Class Carrier — All Rights Reserved</p>
+    </footer>
+
+    <!-- POPUP LINK PERTEMUAN -->
+    <div id="popup-link" class="popup">
+        <div class="popup-content">
+            <h3>Link Pertemuan</h3>
+            <p>Berikut link pertemuannya:</p>
+            <a id="meeting-url" href="#" target="_blank">Buka Link</a>
+            <button onclick="closePopup()" class="close-btn">Tutup</button>
+        </div>
+    </div>
+
+    <!-- POPUP UPLOAD CV -->
+    <div id="popup-cv" class="popup">
+        <div class="popup-content">
+            <h3>Upload CV Anda</h3>
+            <p>Unggah file CV (PDF / DOCX):</p>
+            <input type="file" accept=".pdf, .doc, .docx" />
+            <button class="close-btn" onclick="closePopupCV()">Selesai</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function openLogin() {
+            const section = document.querySelector("#login-section");
+            section.style.display = "block";
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+
+        document.querySelector("#login-btn").addEventListener("click", function(e) {
+            e.preventDefault();
+            openLogin();
+        });
+
+        document.querySelector("#login-btn-2").addEventListener("click", function(e) {
+            e.preventDefault();
+            openLogin();
+        });
+
+        // POPUP LINK
+        function openLinkPopup(url) {
+            document.getElementById("meeting-url").href = url;
+            document.getElementById("popup-link").style.display = "flex";
+        }
+        function closePopup() {
+            document.getElementById("popup-link").style.display = "none";
+        }
+
+        // POPUP CV
+        function openCVPopup() {
+            document.getElementById("popup-cv").style.display = "flex";
+        }
+        function closePopupCV() {
+            document.getElementById("popup-cv").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

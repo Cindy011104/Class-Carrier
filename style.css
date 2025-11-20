@@ -1,0 +1,289 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f1f6ff;
+    color: #444;
+}
+
+/* NAVBAR — WARNA SOFT */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #A9CFFF, #CBE2FF);
+    box-shadow: 0 2px 10px #0001;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    animation: navFade 0.8s ease forwards;
+}
+
+/* ⭐ MEMPERINDAH TULISAN "CLASS CARRIER" DI NAVBAR */
+.brand {
+    color: #0A3F91 !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 6px rgba(0, 65, 160, 0.18);
+    transition: 0.3s ease;
+}
+
+.brand:hover {
+    transform: scale(1.05);
+}
+
+.logo-nav {
+    width: 45px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #0A3F91 !important;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(120deg, #e8f0ff 60%, #d6e6ff 60%);
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: rgba(70, 149, 255, 0.18);
+    border-radius: 50% 0 0 50%;
+}
+
+/* GAMBAR HERO + ANIMASI */
+.hero-image img {
+    width: 85px;
+    margin-bottom: 20px;
+    animation: heroBounce 1.4s ease forwards;
+    transform: scale(1.0);
+}
+
+@keyframes heroBounce {
+    0% { opacity: 0; transform: scale(0.75) translateY(20px); }
+    60% { opacity: 1; transform: scale(1.15) translateY(-10px); }
+    100% { transform: scale(1.05) translateY(0); }
+}
+
+/* ⭐ MENGEMBALIKAN TULISAN HERO KE VERSI SEMULA (TIDAK BESAR) */
+.hero h1 {
+    color: #0A65D5;
+    font-size: 40px;          /* kembali ke ukuran normal */
+    font-weight: 700;         /* kembali seperti default */
+    text-transform: none;     /* bukan uppercase */
+    letter-spacing: 0px;      /* tidak dilebarkan */
+    text-shadow: none;        /* tidak memakai glow */
+    max-width: 700px;
+    margin: 0 auto 15px;
+}
+
+.hero p {
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    color: #555;
+}
+
+.cta-button {
+    background: #0A65D5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* BOX SECTION / CONTENT SECTION / FAQ */
+.box-section,
+.content-section,
+.faq-section {
+    width: 80%;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e9f1ff, #e1ecff, #f4f8ff);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.content-section:hover,
+.faq-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+form input {
+    width: 48%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.btn-submit {
+    background: #0A65D5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* SEARCH BAR */
+.search {
+    width: 50% !important;
+    max-width: 350px;
+    margin-left: 0 !important;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    border: 2px solid #e2e6f3;
+    text-align: center;
+    transition: 0.35s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+.card-photo {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #cfd7f0;
+}
+
+.tag {
+    display: inline-block;
+    background: #dfe7ff;
+    color: #0A65D5;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-item h4 {
+    margin-bottom: 5px;
+    color: #0A65D5;
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #0A65D5;
+}
+
+/* LOGIN SECTION */
+#login-section {
+    display: none;
+}
+
+/* ANIMASI NORMAL SECTION */
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlide 1.2s ease forwards;
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navFade {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeSlide 0.4s ease forwards;
+}
+
+.popup-content a {
+    display: inline-block;
+    background: #0A65D5;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.close-btn {
+    background: #ddd;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
