@@ -1,54 +1,65 @@
-import { auth, db } from "./firebase.js";
-import { 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { 
-    setDoc, doc 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { db, auth } from "./firebase.js";
+import { collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-// --- REGISTER ---
-const registerForm = document.querySelector("#login-section form:nth-of-type(2)");
+// ===== REGISTER USER =====
+const registerForm = document.getElementById("registerForm");
+registerForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = registerForm.email.value;
+  const password = registerForm.password.value;
 
-registerForm?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name = registerForm[0].value;
-    const email = registerForm[1].value;
-    const job = registerForm[2].value;
-    const pass = registerForm[3].value;
-
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-
-        await setDoc(doc(db, "users", userCredential.user.uid), {
-            name,
-            email,
-            job,
-            createdAt: new Date(),
-        });
-
-        alert("Registrasi berhasil!");
-        registerForm.reset();
-
-    } catch (err) {
-        alert("Error: " + err.message);
-    }
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    alert("Register berhasil: " + userCredential.user.email);
+    registerForm.reset();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
 });
 
-// --- LOGIN ---
-const loginForm = document.querySelector("#login-section form:nth-of-type(1)");
+// ===== LOGIN USER =====
+const loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = loginForm.email.value;
+  const password = loginForm.password.value;
 
-loginForm?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = loginForm[0].value;
-    const pass = loginForm[1].value;
-
-    try {
-        await signInWithEmailAndPassword(auth, email, pass);
-        alert("Login berhasil!");
-    } catch (err) {
-        alert("Login gagal: " + err.message);
-    }
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    alert("Login berhasil: " + userCredential.user.email);
+    loginForm.reset();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
 });
+
+// ===== TAMBAH DATA FIRESTORE =====
+const dataForm = document.getElementById("dataForm");
+dataForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = dataForm.name.value;
+  const email = dataForm.email.value;
+
+  try {
+    const docRef = await addDoc(collection(db, "users"), { name, email });
+    alert("Data berhasil ditambahkan: " + docRef.id);
+    dataForm.reset();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+});
+
+// ===== TAMPILKAN DATA FIRESTORE =====
+async function fetchUsers() {
+  const querySnapshot = await getDocs(collection(db, "users"));
+  const list = document.getElementById("userList");
+  list.innerHTML = "";
+  querySnapshot.forEach((doc) => {
+    const li = document.createElement("li");
+    li.textContent = `${doc.id} - ${doc.data().name} (${doc.data().email})`;
+    list.appendChild(li);
+  });
+}
+
+document.getElementById("refreshData").addEventListener("click", fetchUsers);
